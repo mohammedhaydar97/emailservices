@@ -20,7 +20,7 @@ const nodemailer = require("nodemailer");
 
 app.use(express.json());
 
-app.post("/sendEmail", upload.single("attachment"), (req, res) => {
+app.post("/sendEmail", cors(), upload.single("attachment"), (req, res) => {
   async function main() {
     let transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
