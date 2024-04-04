@@ -1,6 +1,10 @@
 require("dotenv").config(); // Load environment variables from .env file
 const express = require("express");
 const multer = require("multer");
+const cors = require("cors");
+
+app.use(cors());
+
 const upload = multer({
   dest: "uploads/",
   fileFilter: function (req, file, cb) {
