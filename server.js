@@ -10,11 +10,13 @@ const upload = multer({
     cb(null, true);
   }
 });
+const cors = require('cors'); // Import CORS middleware
 const app = express();
 const port = process.env.PORT || 3000;
 const nodemailer = require("nodemailer");
 
 app.use(express.json()); 
+app.use(cors()); // Enable CORS for all routes
 
 app.post('/sendEmail', upload.single('attachment'), (req, res) => {
   async function main() {
